@@ -108,7 +108,7 @@ git clone https://github.com/alexgum1/gsc2peecai.git \
 
 ### Cursor / VS Code / Windsurf
 
-These clients don't have a unified skills model yet. Copy `SKILL.md` into your project and reference it explicitly in your AI context (e.g. via Cursor's `@Files` or a context pin).
+These clients don't have a native skills model. Copy `SKILL.md` into your project root and include it in your AI context manually when working on Peec-related tasks.
 
 ---
 
@@ -168,7 +168,7 @@ The skill's most critical improvements are safety-related: user confirmation bef
 
 ## Credits
 
-Built by [Alex Gumtz](https://www.linkedin.com/in/alexandergumtz/) for the [Peec.ai MCP Challenge](https://peec.ai) · April 2026.
+Built by [Alex Gumtz](https://www.linkedin.com/in/alexander-gumtz/) for the [Peec.ai MCP Challenge](https://peec.ai) · April 2026.
 
 Not affiliated with Peec AI or SISTRIX. They make the products; this skill is an independent integration.
 

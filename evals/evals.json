@@ -1,0 +1,96 @@
+{
+  "skill_name": "gsc-peec-ai-visibility",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Ich möchte herausfinden welche Suchanfragen aus meiner Google Search Console relevant sind um sie in Peec.ai zu tracken. Bitte analysiere die GSC-Daten für [your-domain.de], filtere die relevanten W-Fragen und langen Anfragen heraus und lege sie als Prompts im Peec.ai Projekt an.",
+      "expected_output": "1) GSC-Daten abgerufen und gefiltert (W-Fragen + 10+ Wörter, ≥5 Wörter, ≥100 Impressionen). 2) Peec.ai Projekt/Topic identifiziert oder angelegt. 3) Kandidaten dedupliziert gegen bestehende Prompts. 4) Prompts in Batches à 5 angelegt. 5) Zusammenfassung: N Prompts angelegt, N Duplikate übersprungen.",
+      "assertions": [
+        {
+          "name": "gsc-filter-applied",
+          "description": "W-question filter or 10+ word filter was applied to GSC data",
+          "type": "qualitative"
+        },
+        {
+          "name": "batched-creation",
+          "description": "Prompts created in batches of 5 (not all at once)",
+          "type": "qualitative"
+        },
+        {
+          "name": "topic-created-or-reused",
+          "description": "A Peec.ai topic for GSC prompts was created or identified",
+          "type": "qualitative"
+        },
+        {
+          "name": "summary-reported",
+          "description": "Final report shows how many prompts were created vs skipped",
+          "type": "qualitative"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Erstelle ein Live-Dashboard für meine Peec.ai KI-Sichtbarkeit. Es soll die GSC-Daten (Impressionen, Klicks der letzten 30 Tage), das monatliche Suchvolumen aus SISTRIX und die KI-Sichtbarkeit aus Peec.ai zusammenführen. Die Daten aus verschiedenen Quellen sollen farblich unterschieden werden.",
+      "expected_output": "Ein Cowork-Artifact mit: 1) Tabelle mit farblich getrennten Spaltengruppen (blau=GSC, orange=SISTRIX, lila=Peec). 2) KI-Sichtbarkeit in Prozent mit farbigen Badges. 3) Modell-Spalten für Gemini, AI Mode, AI Overview. 4) Debug-Balken mit Datenpunkten je Quelle. 5) Live-Daten via callMcpTool.",
+      "assertions": [
+        {
+          "name": "artifact-created",
+          "description": "A Cowork artifact (live dashboard) was created or updated",
+          "type": "qualitative"
+        },
+        {
+          "name": "color-coded-columns",
+          "description": "Dashboard has distinct colour coding for GSC, SISTRIX, and Peec data",
+          "type": "qualitative"
+        },
+        {
+          "name": "model-breakdown",
+          "description": "Per-model visibility shown for Gemini, AI Mode, AI Overview",
+          "type": "qualitative"
+        },
+        {
+          "name": "unwrap-function",
+          "description": "JavaScript includes unwrap() function to handle both direct JSON and MCP content envelope",
+          "type": "qualitative"
+        },
+        {
+          "name": "sistrix-batched",
+          "description": "SISTRIX calls are batched (5 at a time) not all parallel",
+          "type": "qualitative"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Mein Peec.ai Prompt-Kontingent ist fast voll. Bitte analysiere welche meiner aktuellen Prompts Low-Performer sind, archiviere sie und ersetze sie durch bessere Kandidaten aus der Google Search Console von [your-domain.de].",
+      "expected_output": "1) Brand report für alle Prompts abgerufen. 2) Low-Performer identifiziert (visibility <20% UND mention_count <110, nicht im GSC-Topic). 3) Liste der Low-Performer dem User präsentiert mit Bestätigungsanfrage. 4) Nach Bestätigung: Archivierung in Batches à 5. 5) Neue GSC-Kandidaten gefunden und angelegt. 6) Zusammenfassung.",
+      "assertions": [
+        {
+          "name": "both-thresholds-checked",
+          "description": "Low-performer check uses BOTH visibility <20% AND mention_count <110",
+          "type": "qualitative"
+        },
+        {
+          "name": "user-confirmation-requested",
+          "description": "User was asked to confirm before bulk-deleting prompts",
+          "type": "qualitative"
+        },
+        {
+          "name": "gsc-topic-protected",
+          "description": "Freshly created GSC prompts are not included in low-performers",
+          "type": "qualitative"
+        },
+        {
+          "name": "batched-deletion",
+          "description": "Deletion happens in batches of 5, not all at once",
+          "type": "qualitative"
+        },
+        {
+          "name": "replacements-created",
+          "description": "New GSC candidates were found and created after archiving",
+          "type": "qualitative"
+        }
+      ]
+    }
+  ]
+}

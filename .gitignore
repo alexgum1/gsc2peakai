@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Workspace outputs (eval transcripts, benchmark workspace)
+*-workspace/
+
+# Skill package (built artifact — install from Releases instead)
+*.skill
+
+# Environment / secrets
+.env
+*.env.local
+secrets.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
